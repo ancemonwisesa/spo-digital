@@ -243,7 +243,7 @@ function page2HeaderHTML(spo, page, totalPages) {
   </td>
   <td style="width:15mm">
     <div class="spo-meta-label">No. Revisi</div>
-    <div></div>
+    <div>01</div>
   </td>
   <td style="width:15mm">
     <div class="spo-meta-label">Halaman</div>
