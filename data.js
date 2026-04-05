@@ -27,9 +27,9 @@ const SPO = [
     unitTerkait: ['Bagian Pendaftaran', 'Perawat Poliklinik', 'Petugas Farmasi', 'Kasir Rawat Jalan'],
     prosedur: [
       { title: 'Pasien datang dan diterima petugas admisi', desc: 'Petugas admisi menyapa pasien dan mengonfirmasi apakah pasien baru atau lama melalui layar antrian SIMRS.', emr: 'Sistem antrian digital SIMRS menampilkan urutan dan estimasi waktu tunggu secara real-time.' },
-      { title: 'Pasien isi formulir identitas secara digital di EMR', desc: 'Petugas memandu pasien mengisi data identitas lengkap pada formulir pendaftaran digital di terminal EMR atau tablet admisi.', emr: 'Data NIK pasien dapat diverifikasi langsung ke Dukcapil melalui integrasi EMR untuk memastikan keakuratan data.' },
+      { title: 'Pasien isi formulir identitas secara digital di SIMRS', desc: 'Petugas memandu pasien mengisi data identitas lengkap pada formulir pendaftaran digital di terminal SIMRS atau tablet admisi.', emr: 'Data NIK pasien dapat diverifikasi langsung ke Dukcapil melalui integrasi SIMRS untuk memastikan keakuratan data.' },
       { title: 'Generate nomor rekam medis dan cetak KIB di SIMRS', desc: 'SIMRS secara otomatis menghasilkan nomor rekam medis unik dan mencetak Kartu Identitas Berobat (KIB) untuk pasien.', emr: 'Nomor RM digenerate otomatis oleh SIMRS dengan sistem Unit Numbering System — tidak perlu penomoran manual.' },
-      { title: 'Input data asuransi/jaminan ke EMR', desc: 'Petugas menginput jenis jaminan (umum/BPJS/asuransi swasta) dan memverifikasi eligibilitas langsung dari EMR.', emr: 'Verifikasi eligibilitas BPJS dapat dilakukan real-time melalui integrasi SIMRS dengan sistem P-Care/V-Claim.' },
+      { title: 'Input data asuransi/jaminan ke SIMRS', desc: 'Petugas menginput jenis jaminan (umum/BPJS/asuransi swasta) dan memverifikasi eligibilitas langsung dari SIMRS.', emr: 'Verifikasi eligibilitas BPJS dapat dilakukan real-time melalui integrasi SIMRS dengan sistem P-Care/V-Claim.' },
       { title: 'Pasien diarahkan ke poliklinik via display antrian', desc: 'Petugas mengonfirmasi poliklinik tujuan di SIMRS. Nomor antrian dan nama poliklinik tampil otomatis pada papan display.', emr: 'Pasien dapat memantau antrian melalui display digital di setiap poliklinik.' },
     ]
   },
@@ -59,7 +59,7 @@ const SPO = [
       { title: 'Terima pasien dan verifikasi surat pengantar rawat inap', desc: 'Petugas admisi rawat inap menerima pasien atau keluarga dan memverifikasi surat pengantar/rujukan rawat inap dari dokter.', emr: 'Surat pengantar rawat inap dari dokter poliklinik sudah tersedia di EMR; tidak perlu dokumen kertas terpisah.' },
       { title: 'Cek ketersediaan kamar di SIMRS', desc: 'Periksa ketersediaan kamar di SIMRS sesuai kelas yang diinginkan dan rekomendasi medis dari dokter.', emr: 'Denah kamar rawat inap dan status ketersediaan (terisi/kosong) tampil real-time di modul manajemen tempat tidur SIMRS.' },
       { title: 'Input data pendaftaran rawat inap ke EMR', desc: 'Petugas menginput seluruh identitas pasien, jaminan kesehatan, dan data pengantar ke EMR. Sistem menghitung nomor episode rawat inap baru secara otomatis.', emr: 'EMR memastikan semua data pasien lengkap sebelum proses pendaftaran dapat difinalisasi.' },
-      { title: 'Buat berkas rawat inap dan cetak gelang identitas', desc: 'Siapkan berkas rawat inap dan cetak gelang identitas pasien dari modul cetak EMR sesuai jenis kelamin dan risiko pasien.', emr: 'Gelang risiko (alergi, jatuh) dicetak otomatis berdasarkan catatan klinis di EMR.' },
+      { title: 'Buat berkas rawat inap dan cetak gelang identitas', desc: 'Siapkan berkas rawat inap dan cetak gelang identitas pasien dari modul cetak SIMRS sesuai jenis kelamin dan risiko pasien.', emr: 'Gelang risiko (alergi, jatuh) dicetak otomatis berdasarkan catatan klinis di SIMRS.' },
       { title: 'Informasikan ke ruang perawatan via SIMRS', desc: 'Konfirmasikan penerimaan pasien ke ruang perawatan yang dituju melalui notifikasi internal SIMRS.', emr: 'Perawat ruangan mendapat notifikasi real-time di SIMRS dan dapat mempersiapkan tempat tidur sebelum pasien tiba.' },
     ]
   },
@@ -90,7 +90,7 @@ const SPO = [
       { title: 'Terima notifikasi tracer dari SIMRS', desc: 'Petugas rekam medis menerima notifikasi tracer pasien baru yang dikirim secara digital oleh unit pendaftaran melalui SIMRS.', emr: 'Tracer tersedia otomatis di modul distribusi SIMRS begitu pendaftaran selesai — tidak perlu pengambilan manual.' },
       { title: 'Verifikasi identitas pasien di EMR', desc: 'Buka modul pasien di EMR dan verifikasi identitas: nama, nomor rekam medis, tanggal lahir, jenis kelamin, dan poliklinik tujuan.', emr: 'Data sudah terinput oleh petugas pendaftaran — tidak perlu entri ulang.' },
       { title: 'Siapkan map DRM sesuai jenis kelamin', desc: 'Siapkan map Dokumen Rekam Medis: merah muda untuk pasien perempuan, biru untuk pasien laki-laki.', emr: '' },
-      { title: 'Cetak label identitas dari EMR', desc: 'Cetak label identitas pasien langsung dari modul cetak EMR yang memuat nama, nomor rekam medis, dan tanggal lahir.', emr: 'Gunakan fitur "Cetak Label" EMR untuk menghindari kesalahan penulisan manual.' },
+      { title: 'Cetak label identitas dari SIMRS', desc: 'Cetak label identitas pasien langsung dari modul cetak SIMRS yang memuat nama, nomor rekam medis, dan tanggal lahir.', emr: 'Gunakan fitur "Cetak Label" EMR untuk menghindari kesalahan penulisan manual.' },
       { title: 'Rakit berkas rekam medis', desc: 'Masukkan DRM beserta label identitas dan surat kontrol ke dalam map sesuai standar assembling.', emr: '' },
       { title: 'Distribusi ke poliklinik dan konfirmasi di SIMRS', desc: 'Input konfirmasi distribusi ke SIMRS, letakkan DRM pada rak tunda sesuai poliklinik tujuan yang tampil di layar.', emr: 'Status distribusi tercatat otomatis sehingga poliklinik dapat memantau ketersediaan dokumen secara real-time.' },
     ]
@@ -105,7 +105,7 @@ const SPO = [
     prosedur: [
       { title: 'Terima notifikasi bon biaya/tracer dari SIMRS', desc: 'Petugas rekam medis menerima notifikasi digital dari SIMRS bahwa pasien lama sudah terdaftar dan DRM perlu disiapkan.', emr: 'Notifikasi otomatis muncul di modul distribusi SIMRS; bon biaya tersedia digital — tidak perlu serah terima kertas.' },
       { title: 'Cari DRM di rak berdasarkan nomor RM di SIMRS', desc: 'Cari DRM pasien di rak penyimpanan berdasarkan nomor rekam medis yang tampil di SIMRS. Sisipkan tracer digital sebagai penanda berkas keluar.', emr: 'Lokasi rak dan posisi penyimpanan DRM tercantum di modul filling SIMRS.' },
-      { title: 'Cetak label identitas dari EMR', desc: 'Cetak label identitas terbaru dari EMR dan tempel pada map serta formulir kunjungan saat ini.', emr: '' },
+      { title: 'Cetak label identitas dari SIMRS', desc: 'Cetak label identitas terbaru dari SIMRS dan tempel pada map serta formulir kunjungan saat ini.', emr: '' },
       { title: 'Masukkan formulir kunjungan dan surat kontrol ke DRM', desc: 'Siapkan formulir asesmen ulangan yang sesuai dan masukkan beserta surat kontrol ke dalam DRM.', emr: 'Formulir asesmen ulangan tersedia di modul EMR; isi sesuai kebutuhan kunjungan saat ini.' },
       { title: 'Distribusikan DRM ke poliklinik tujuan via SIMRS', desc: 'Update status distribusi di SIMRS dan antarkan DRM ke poliklinik yang dituju.', emr: '' },
     ]
@@ -121,7 +121,7 @@ const SPO = [
       { title: 'Terima notifikasi bon biaya dari SIMRS', desc: 'Petugas menerima notifikasi digital bon biaya dari petugas pendaftaran melalui SIMRS.', emr: 'Bon biaya tersedia di modul billing SIMRS; tidak perlu serah terima fisik.' },
       { title: 'Verifikasi kelengkapan berkas asuransi di EMR', desc: 'Periksa kelengkapan berkas asuransi yang sudah diunggah ke EMR: kartu peserta, surat rujukan, dan dokumen pendukung.', emr: 'Dokumen asuransi di-scan dan diunggah ke modul attachment EMR oleh petugas pendaftaran.' },
       { title: 'Input asesmen awal rawat jalan ke EMR', desc: 'Masukkan formulir asesmen awal rawat jalan ke dalam status pasien yang sudah terbuat di EMR.', emr: 'Formulir asesmen awal sudah tersedia di EMR; tinggal dilengkapi sesuai kondisi pasien.' },
-      { title: 'Cetak stiker identitas dari EMR', desc: 'Cetak stiker identitas dari modul cetak EMR dan tempel pada map serta formulir terkait.', emr: '' },
+      { title: 'Cetak stiker identitas dari SIMRS', desc: 'Cetak stiker identitas dari modul cetak SIMRS dan tempel pada map serta formulir terkait.', emr: '' },
       { title: 'Serahkan status ke poliklinik/IGD dan update SIMRS', desc: 'Serahkan status pasien ke poliklinik atau IGD yang dituju dan konfirmasi penerimaan di SIMRS.', emr: 'Status distribusi tercatat otomatis di SIMRS.' },
     ]
   },
@@ -163,8 +163,8 @@ const SPO = [
     unitTerkait: ['Unit Pendaftaran', 'Unit Rekam Medis', 'Unit Rawat Jalan'],
     prosedur: [
       { title: 'Terima notifikasi tracer MCU dari SIMRS', desc: 'Petugas menerima notifikasi tracer pasien poli MCU yang dikirim digital melalui SIMRS oleh unit pendaftaran.', emr: 'Tracer MCU tersedia otomatis di modul distribusi SIMRS setelah pendaftaran selesai.' },
-      { title: 'Cetak stiker/label identitas dari EMR', desc: 'Cetak stiker identitas pasien dari modul cetak EMR sesuai data yang sudah terinput.', emr: '' },
-      { title: 'Siapkan formulir MCU dan tempel label', desc: 'Siapkan formulir MCU dari paket yang dipilih, tempel label identitas pada semua formulir.', emr: 'Formulir MCU tersedia dalam format digital di EMR dan dapat dipilih sesuai paket pemeriksaan.' },
+      { title: 'Cetak stiker/label identitas dari SIMRS', desc: 'Cetak stiker identitas pasien dari modul cetak SIMRS sesuai data yang sudah terinput.', emr: '' },
+      { title: 'Siapkan formulir MCU dan tempel label', desc: 'Siapkan formulir MCU dari paket yang dipilih, tempel label identitas pada semua formulir.', emr: 'Formulir MCU tersedia dalam format digital di SIMRS dan dapat dipilih sesuai paket pemeriksaan.' },
       { title: 'Distribusikan berkas melalui SIMRS', desc: 'Input konfirmasi distribusi ke SIMRS dan arahkan berkas ke poliklinik MCU yang sesuai.', emr: 'Poliklinik MCU dapat memantau kedatangan berkas secara real-time melalui SIMRS.' },
       { title: 'Distribusikan stiker ke seluruh poliklinik terkait', desc: 'Distribusikan stiker identitas ke semua poliklinik yang akan dikunjungi pasien MCU sesuai paket pemeriksaan.', emr: '' },
     ]
