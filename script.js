@@ -111,14 +111,14 @@ function renderDetail(spo) {
 
   spo.prosedur.forEach((step, i) => {
     const isDone = !!done[i];
-    html += `<div class="step-card${isDone ? ' done' : ''}">
+    html += `<div class="step-card${isDone ? ' done' : ''}" onclick="toggleStep('${spo.id}',${i})">
   <div class="step-num">${isDone ? `<svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:white;fill:none;stroke-width:2.5"><polyline points="20 6 9 17 4 12"/></svg>` : i + 1}</div>
   <div class="step-body">
     <div class="step-title-text">${step.title}</div>
     <div class="step-desc-text">${step.desc}</div>
     ${step.emr ? `<div class="emr-note"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><span>${step.emr}</span></div>` : ''}
   </div>
-  <div class="step-check" onclick="toggleStep('${spo.id}',${i})">
+  <div class="step-check">
     <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
   </div>
 </div>`;

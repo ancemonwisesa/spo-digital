@@ -680,7 +680,8 @@ body {
   border-radius: 0;
   margin-top: -1px;
   position: relative;
-  transition: background .12s
+  transition: background .12s;
+  cursor: pointer;
 }
 
 .step-card:first-child {
