@@ -9,7 +9,7 @@ const ICONS = {
 
 const CATS = [
   { id: 'pendaftaran', label: 'Pendaftaran & Admisi', color: 'blue', icon: 'person' },
-  // { id: 'rajal', label: 'Rawat Jalan', color: 'blue', icon: 'person' },
+  { id: 'rajal', label: 'Rawat Jalan', color: 'blue', icon: 'person' },
   // { id: 'ranap', label: 'Rawat Inap', color: 'teal', icon: 'bed' },
   // { id: 'dokumen', label: 'Pengelolaan Dokumen', color: 'amber', icon: 'doc' },
   // { id: 'admin', label: 'Administrasi Medis', color: 'red', icon: 'cal' },
@@ -79,110 +79,110 @@ const SPO = [
     ]
   },
   // ── RAWAT JALAN ───────────────────────────────────────────────────────────
-  // {
-  //   id: 'RJ-01', cat: 'rajal',
-  //   name: 'Permintaan DRM Pasien Baru Rawat Jalan',
-  //   unit: 'Unit Rekam Medis',
-  //   pengertian: 'Rangkaian pembuatan Dokumen Rekam Medis elektronik untuk pasien baru guna mendapatkan pelayanan kesehatan sesuai kebutuhan.',
-  //   tujuan: 'Sebagai acuan pembuatan DRM baru yang terintegrasi dengan EMR dan SIMRS.',
-  //   unitTerkait: ['Unit Pendaftaran', 'Unit Rekam Medis', 'Unit Poliklinik', 'Unit Penunjang Medis', 'Unit Gawat Darurat'],
-  //   prosedur: [
-  //     { title: 'Terima notifikasi tracer dari SIMRS', desc: 'Petugas rekam medis menerima notifikasi tracer pasien baru yang dikirim secara digital oleh unit pendaftaran melalui SIMRS.', emr: 'Tracer tersedia otomatis di modul distribusi SIMRS begitu pendaftaran selesai — tidak perlu pengambilan manual.' },
-  //     { title: 'Verifikasi identitas pasien di EMR', desc: 'Buka modul pasien di EMR dan verifikasi identitas: nama, nomor rekam medis, tanggal lahir, jenis kelamin, dan poliklinik tujuan.', emr: 'Data sudah terinput oleh petugas pendaftaran — tidak perlu entri ulang.' },
-  //     { title: 'Siapkan map DRM sesuai jenis kelamin', desc: 'Siapkan map Dokumen Rekam Medis: merah muda untuk pasien perempuan, biru untuk pasien laki-laki.', emr: '' },
-  //     { title: 'Cetak label identitas dari EMR', desc: 'Cetak label identitas pasien langsung dari modul cetak EMR yang memuat nama, nomor rekam medis, dan tanggal lahir.', emr: 'Gunakan fitur "Cetak Label" EMR untuk menghindari kesalahan penulisan manual.' },
-  //     { title: 'Rakit berkas rekam medis', desc: 'Masukkan DRM beserta label identitas dan surat kontrol ke dalam map sesuai standar assembling.', emr: '' },
-  //     { title: 'Distribusi ke poliklinik dan konfirmasi di SIMRS', desc: 'Input konfirmasi distribusi ke SIMRS, letakkan DRM pada rak tunda sesuai poliklinik tujuan yang tampil di layar.', emr: 'Status distribusi tercatat otomatis sehingga poliklinik dapat memantau ketersediaan dokumen secara real-time.' },
-  //   ]
-  // },
-  // {
-  //   id: 'RJ-02', cat: 'rajal',
-  //   name: 'Permintaan DRM Pasien Lama Rawat Jalan',
-  //   unit: 'Unit Rekam Medis',
-  //   pengertian: 'Rangkaian pencarian dan persiapan Dokumen Rekam Medis pasien lama untuk kunjungan ulang rawat jalan.',
-  //   tujuan: 'Sebagai acuan pencarian DRM pasien lama yang terintegrasi dengan SIMRS.',
-  //   unitTerkait: ['Petugas Pendaftaran', 'Unit Rekam Medis', 'Perawat Poliklinik', 'Unit Penunjang Medis', 'Perawat UGD'],
-  //   prosedur: [
-  //     { title: 'Terima notifikasi bon biaya/tracer dari SIMRS', desc: 'Petugas rekam medis menerima notifikasi digital dari SIMRS bahwa pasien lama sudah terdaftar dan DRM perlu disiapkan.', emr: 'Notifikasi otomatis muncul di modul distribusi SIMRS; bon biaya tersedia digital — tidak perlu serah terima kertas.' },
-  //     { title: 'Cari DRM di rak berdasarkan nomor RM di SIMRS', desc: 'Cari DRM pasien di rak penyimpanan berdasarkan nomor rekam medis yang tampil di SIMRS. Sisipkan tracer digital sebagai penanda berkas keluar.', emr: 'Lokasi rak dan posisi penyimpanan DRM tercantum di modul filling SIMRS.' },
-  //     { title: 'Cetak label identitas dari EMR', desc: 'Cetak label identitas terbaru dari EMR dan tempel pada map serta formulir kunjungan saat ini.', emr: '' },
-  //     { title: 'Masukkan formulir kunjungan dan surat kontrol ke DRM', desc: 'Siapkan formulir asesmen ulangan yang sesuai dan masukkan beserta surat kontrol ke dalam DRM.', emr: 'Formulir asesmen ulangan tersedia di modul EMR; isi sesuai kebutuhan kunjungan saat ini.' },
-  //     { title: 'Distribusikan DRM ke poliklinik tujuan via SIMRS', desc: 'Update status distribusi di SIMRS dan antarkan DRM ke poliklinik yang dituju.', emr: '' },
-  //   ]
-  // },
-  // {
-  //   id: 'RJ-03', cat: 'rajal',
-  //   name: 'Penerimaan Pasien Baru Asuransi Rawat Jalan',
-  //   unit: 'Unit Rekam Medis',
-  //   pengertian: 'Rangkaian penerimaan pasien baru peserta asuransi swasta maupun pemerintah untuk berobat di Unit Rawat Jalan.',
-  //   tujuan: 'Sebagai acuan penerimaan pasien baru asuransi rawat jalan.',
-  //   unitTerkait: ['Petugas Pendaftaran', 'Unit Rekam Medis', 'Perawat Poliklinik', 'Perawat IGD'],
-  //   prosedur: [
-  //     { title: 'Terima notifikasi bon biaya dari SIMRS', desc: 'Petugas menerima notifikasi digital bon biaya dari petugas pendaftaran melalui SIMRS.', emr: 'Bon biaya tersedia di modul billing SIMRS; tidak perlu serah terima fisik.' },
-  //     { title: 'Verifikasi kelengkapan berkas asuransi di EMR', desc: 'Periksa kelengkapan berkas asuransi yang sudah diunggah ke EMR: kartu peserta, surat rujukan, dan dokumen pendukung.', emr: 'Dokumen asuransi di-scan dan diunggah ke modul attachment EMR oleh petugas pendaftaran.' },
-  //     { title: 'Input asesmen awal rawat jalan ke EMR', desc: 'Masukkan formulir asesmen awal rawat jalan ke dalam status pasien yang sudah terbuat di EMR.', emr: 'Formulir asesmen awal sudah tersedia di EMR; tinggal dilengkapi sesuai kondisi pasien.' },
-  //     { title: 'Cetak stiker identitas dari EMR', desc: 'Cetak stiker identitas dari modul cetak EMR dan tempel pada map serta formulir terkait.', emr: '' },
-  //     { title: 'Serahkan status ke poliklinik/IGD dan update SIMRS', desc: 'Serahkan status pasien ke poliklinik atau IGD yang dituju dan konfirmasi penerimaan di SIMRS.', emr: 'Status distribusi tercatat otomatis di SIMRS.' },
-  //   ]
-  // },
-  // {
-  //   id: 'RJ-04', cat: 'rajal',
-  //   name: 'Penerimaan Pasien Lama Asuransi Rawat Jalan',
-  //   unit: 'Unit Rekam Medis',
-  //   pengertian: 'Rangkaian penerimaan pasien lama peserta asuransi untuk kunjungan ulang di Unit Rawat Jalan.',
-  //   tujuan: 'Sebagai acuan penerimaan pasien lama rawat jalan jaminan asuransi yang terintegrasi dengan EMR.',
-  //   unitTerkait: ['Petugas Pendaftaran', 'Unit Rekam Medis', 'Perawat Poliklinik', 'Perawat IGD'],
-  //   prosedur: [
-  //     { title: 'Terima notifikasi dari SIMRS', desc: 'Petugas menerima notifikasi digital dari SIMRS bahwa pasien lama asuransi sudah terdaftar.', emr: '' },
-  //     { title: 'Ambil DRM dari penyimpanan berdasarkan lokasi di SIMRS', desc: 'Cari dan ambil DRM dari rak penyimpanan berdasarkan nomor RM dan lokasi rak yang tercantum di SIMRS.', emr: 'Lokasi penyimpanan DRM selalu terbarui di modul filling SIMRS.' },
-  //     { title: 'Verifikasi kelengkapan berkas asuransi', desc: 'Periksa dan cocokkan kelengkapan berkas asuransi dengan data yang tersimpan di EMR.', emr: '' },
-  //     { title: 'Input asesmen ulangan rawat jalan ke EMR', desc: 'Lengkapi formulir asesmen ulangan di EMR untuk kunjungan saat ini. Riwayat sebelumnya sudah tersedia sebagai referensi.', emr: 'Riwayat kunjungan, diagnosis, dan terapi sebelumnya langsung tersedia di EMR.' },
-  //     { title: 'Cetak stiker dan distribusikan ke poliklinik', desc: 'Cetak stiker identitas dari EMR, tempel pada formulir, lalu distribusikan DRM ke poliklinik dan update SIMRS.', emr: '' },
-  //   ]
-  // },
-  // {
-  //   id: 'RJ-05', cat: 'rajal',
-  //   name: 'Penerimaan Pasien Rencana Operasi',
-  //   unit: 'Unit Rekam Medis',
-  //   pengertian: 'Penerimaan dan persiapan berkas rekam medis untuk pasien yang telah dijadwalkan operasi pada kunjungan berikutnya.',
-  //   tujuan: 'Sebagai acuan penerimaan pasien rencana operasi yang terintegrasi dengan jadwal OK di SIMRS.',
-  //   unitTerkait: ['Bagian Pendaftaran', 'Unit Rekam Medis', 'Perawat Poliklinik', 'Perawat OK'],
-  //   prosedur: [
-  //     { title: 'Pasien mendaftar dengan nomor rekam medis', desc: 'Pasien mendaftar di loket pendaftaran dan menyerahkan nomor rekam medis atau KIB. SIMRS langsung menampilkan jadwal operasi yang terdaftar.', emr: 'Jadwal operasi sudah terinput di modul OK SIMRS oleh dokter pada kunjungan sebelumnya.' },
-  //     { title: 'Verifikasi keberadaan DRM di SIMRS', desc: 'Petugas rekam medis mengecek status dan lokasi DRM pasien di modul filling SIMRS.', emr: 'Status DRM (di rak/sedang dipinjam) terlihat real-time di SIMRS.' },
-  //     { title: 'Ambil DRM dan cek kelengkapan formulir pre-operasi', desc: 'Ambil DRM dari rak penyimpanan dan pastikan formulir pre-operasi (informed consent, hasil lab, pemeriksaan anestesi) sudah dilampirkan.', emr: 'Checklist kelengkapan formulir pre-operasi tersedia di modul OK EMR.' },
-  //     { title: 'Serahkan DRM ke perawat OK via SIMRS', desc: 'Serahkan DRM ke perawat OK dan konfirmasi serah terima di SIMRS.', emr: 'Update status DRM di SIMRS menjadi "distribusi ke OK" agar dapat dilacak oleh semua unit.' },
-  //   ]
-  // },
-  // {
-  //   id: 'RJ-06', cat: 'rajal',
-  //   name: 'Pelayanan Rekam Medis Pasien MCU',
-  //   unit: 'Unit Rekam Medis',
-  //   pengertian: 'Pengelolaan berkas rekam medis untuk pasien yang menjalani Medical Check-Up (MCU).',
-  //   tujuan: 'Sebagai panduan pelayanan Unit Rekam Medis untuk pasien MCU.',
-  //   unitTerkait: ['Unit Pendaftaran', 'Unit Rekam Medis', 'Unit Rawat Jalan'],
-  //   prosedur: [
-  //     { title: 'Terima notifikasi tracer MCU dari SIMRS', desc: 'Petugas menerima notifikasi tracer pasien poli MCU yang dikirim digital melalui SIMRS oleh unit pendaftaran.', emr: 'Tracer MCU tersedia otomatis di modul distribusi SIMRS setelah pendaftaran selesai.' },
-  //     { title: 'Cetak stiker/label identitas dari EMR', desc: 'Cetak stiker identitas pasien dari modul cetak EMR sesuai data yang sudah terinput.', emr: '' },
-  //     { title: 'Siapkan formulir MCU dan tempel label', desc: 'Siapkan formulir MCU dari paket yang dipilih, tempel label identitas pada semua formulir.', emr: 'Formulir MCU tersedia dalam format digital di EMR dan dapat dipilih sesuai paket pemeriksaan.' },
-  //     { title: 'Distribusikan berkas melalui SIMRS', desc: 'Input konfirmasi distribusi ke SIMRS dan arahkan berkas ke poliklinik MCU yang sesuai.', emr: 'Poliklinik MCU dapat memantau kedatangan berkas secara real-time melalui SIMRS.' },
-  //     { title: 'Distribusikan stiker ke seluruh poliklinik terkait', desc: 'Distribusikan stiker identitas ke semua poliklinik yang akan dikunjungi pasien MCU sesuai paket pemeriksaan.', emr: '' },
-  //   ]
-  // },
-  // {
-  //   id: 'RJ-07', cat: 'rajal',
-  //   name: 'Pendistribusian Status Rawat Jalan',
-  //   unit: 'Unit Rekam Medis',
-  //   pengertian: 'Kegiatan pendistribusian dokumen rekam medis rawat jalan ke poliklinik yang dituju secara cepat dan tepat.',
-  //   tujuan: 'Meningkatkan mutu pelayanan melalui distribusi status yang cepat dan tepat sasaran.',
-  //   unitTerkait: ['Petugas Unit Rekam Medis'],
-  //   prosedur: [
-  //     { title: 'Siapkan DRM dan data distribusi', desc: 'Siapkan DRM yang akan didistribusikan. Pastikan semua DRM sudah lengkap dan tersusun dengan baik.', emr: '' },
-  //     { title: 'Catat distribusi di SIMRS', desc: 'Input data distribusi (tanggal, nomor RM, nama pasien, poliklinik tujuan) ke SIMRS sekaligus mencatat di buku ekspedisi fisik.', emr: 'Data digital di SIMRS memungkinkan poliklinik tujuan memantau DRM yang sedang dalam perjalanan.' },
-  //     { title: 'Antar DRM ke poliklinik berdasarkan prioritas antrian', desc: 'Antar DRM ke poliklinik tujuan. Prioritaskan berdasarkan urutan antrian yang tampil di SIMRS.', emr: 'Urutan prioritas distribusi dapat dilihat dari modul antrian poliklinik SIMRS.' },
-  //     { title: 'Konfirmasi penerimaan secara digital', desc: 'Minta konfirmasi penerimaan dari petugas poliklinik melalui SIMRS dan catat waktu serah terima.', emr: 'Konfirmasi digital di SIMRS mencatat siapa penerima, jam terima, dan status distribusi secara akurat.' },
-  //   ]
-  // },
+  {
+    id: 'RJ-01', cat: 'rajal',
+    name: 'Permintaan DRM Pasien Baru Rawat Jalan',
+    unit: 'Unit Rekam Medis',
+    pengertian: 'Rangkaian pembuatan Dokumen Rekam Medis elektronik untuk pasien baru guna mendapatkan pelayanan kesehatan sesuai kebutuhan.',
+    tujuan: 'Sebagai acuan pembuatan DRM baru yang terintegrasi dengan EMR dan SIMRS.',
+    unitTerkait: ['Unit Pendaftaran', 'Unit Rekam Medis', 'Unit Poliklinik', 'Unit Penunjang Medis', 'Unit Gawat Darurat'],
+    prosedur: [
+      { title: 'Terima notifikasi tracer dari SIMRS', desc: 'Petugas rekam medis menerima notifikasi tracer pasien baru yang dikirim secara digital oleh unit pendaftaran melalui SIMRS.', emr: 'Tracer tersedia otomatis di modul distribusi SIMRS begitu pendaftaran selesai — tidak perlu pengambilan manual.' },
+      { title: 'Verifikasi identitas pasien di EMR', desc: 'Buka modul pasien di EMR dan verifikasi identitas: nama, nomor rekam medis, tanggal lahir, jenis kelamin, dan poliklinik tujuan.', emr: 'Data sudah terinput oleh petugas pendaftaran — tidak perlu entri ulang.' },
+      { title: 'Siapkan map DRM sesuai jenis kelamin', desc: 'Siapkan map Dokumen Rekam Medis: merah muda untuk pasien perempuan, biru untuk pasien laki-laki.', emr: '' },
+      { title: 'Cetak label identitas dari EMR', desc: 'Cetak label identitas pasien langsung dari modul cetak EMR yang memuat nama, nomor rekam medis, dan tanggal lahir.', emr: 'Gunakan fitur "Cetak Label" EMR untuk menghindari kesalahan penulisan manual.' },
+      { title: 'Rakit berkas rekam medis', desc: 'Masukkan DRM beserta label identitas dan surat kontrol ke dalam map sesuai standar assembling.', emr: '' },
+      { title: 'Distribusi ke poliklinik dan konfirmasi di SIMRS', desc: 'Input konfirmasi distribusi ke SIMRS, letakkan DRM pada rak tunda sesuai poliklinik tujuan yang tampil di layar.', emr: 'Status distribusi tercatat otomatis sehingga poliklinik dapat memantau ketersediaan dokumen secara real-time.' },
+    ]
+  },
+  {
+    id: 'RJ-02', cat: 'rajal',
+    name: 'Permintaan DRM Pasien Lama Rawat Jalan',
+    unit: 'Unit Rekam Medis',
+    pengertian: 'Rangkaian pencarian dan persiapan Dokumen Rekam Medis pasien lama untuk kunjungan ulang rawat jalan.',
+    tujuan: 'Sebagai acuan pencarian DRM pasien lama yang terintegrasi dengan SIMRS.',
+    unitTerkait: ['Petugas Pendaftaran', 'Unit Rekam Medis', 'Perawat Poliklinik', 'Unit Penunjang Medis', 'Perawat UGD'],
+    prosedur: [
+      { title: 'Terima notifikasi bon biaya/tracer dari SIMRS', desc: 'Petugas rekam medis menerima notifikasi digital dari SIMRS bahwa pasien lama sudah terdaftar dan DRM perlu disiapkan.', emr: 'Notifikasi otomatis muncul di modul distribusi SIMRS; bon biaya tersedia digital — tidak perlu serah terima kertas.' },
+      { title: 'Cari DRM di rak berdasarkan nomor RM di SIMRS', desc: 'Cari DRM pasien di rak penyimpanan berdasarkan nomor rekam medis yang tampil di SIMRS. Sisipkan tracer digital sebagai penanda berkas keluar.', emr: 'Lokasi rak dan posisi penyimpanan DRM tercantum di modul filling SIMRS.' },
+      { title: 'Cetak label identitas dari EMR', desc: 'Cetak label identitas terbaru dari EMR dan tempel pada map serta formulir kunjungan saat ini.', emr: '' },
+      { title: 'Masukkan formulir kunjungan dan surat kontrol ke DRM', desc: 'Siapkan formulir asesmen ulangan yang sesuai dan masukkan beserta surat kontrol ke dalam DRM.', emr: 'Formulir asesmen ulangan tersedia di modul EMR; isi sesuai kebutuhan kunjungan saat ini.' },
+      { title: 'Distribusikan DRM ke poliklinik tujuan via SIMRS', desc: 'Update status distribusi di SIMRS dan antarkan DRM ke poliklinik yang dituju.', emr: '' },
+    ]
+  },
+  {
+    id: 'RJ-03', cat: 'rajal',
+    name: 'Penerimaan Pasien Baru Asuransi Rawat Jalan',
+    unit: 'Unit Rekam Medis',
+    pengertian: 'Rangkaian penerimaan pasien baru peserta asuransi swasta maupun pemerintah untuk berobat di Unit Rawat Jalan.',
+    tujuan: 'Sebagai acuan penerimaan pasien baru asuransi rawat jalan.',
+    unitTerkait: ['Petugas Pendaftaran', 'Unit Rekam Medis', 'Perawat Poliklinik', 'Perawat IGD'],
+    prosedur: [
+      { title: 'Terima notifikasi bon biaya dari SIMRS', desc: 'Petugas menerima notifikasi digital bon biaya dari petugas pendaftaran melalui SIMRS.', emr: 'Bon biaya tersedia di modul billing SIMRS; tidak perlu serah terima fisik.' },
+      { title: 'Verifikasi kelengkapan berkas asuransi di EMR', desc: 'Periksa kelengkapan berkas asuransi yang sudah diunggah ke EMR: kartu peserta, surat rujukan, dan dokumen pendukung.', emr: 'Dokumen asuransi di-scan dan diunggah ke modul attachment EMR oleh petugas pendaftaran.' },
+      { title: 'Input asesmen awal rawat jalan ke EMR', desc: 'Masukkan formulir asesmen awal rawat jalan ke dalam status pasien yang sudah terbuat di EMR.', emr: 'Formulir asesmen awal sudah tersedia di EMR; tinggal dilengkapi sesuai kondisi pasien.' },
+      { title: 'Cetak stiker identitas dari EMR', desc: 'Cetak stiker identitas dari modul cetak EMR dan tempel pada map serta formulir terkait.', emr: '' },
+      { title: 'Serahkan status ke poliklinik/IGD dan update SIMRS', desc: 'Serahkan status pasien ke poliklinik atau IGD yang dituju dan konfirmasi penerimaan di SIMRS.', emr: 'Status distribusi tercatat otomatis di SIMRS.' },
+    ]
+  },
+  {
+    id: 'RJ-04', cat: 'rajal',
+    name: 'Penerimaan Pasien Lama Asuransi Rawat Jalan',
+    unit: 'Unit Rekam Medis',
+    pengertian: 'Rangkaian penerimaan pasien lama peserta asuransi untuk kunjungan ulang di Unit Rawat Jalan.',
+    tujuan: 'Sebagai acuan penerimaan pasien lama rawat jalan jaminan asuransi yang terintegrasi dengan EMR.',
+    unitTerkait: ['Petugas Pendaftaran', 'Unit Rekam Medis', 'Perawat Poliklinik', 'Perawat IGD'],
+    prosedur: [
+      { title: 'Terima notifikasi dari SIMRS', desc: 'Petugas menerima notifikasi digital dari SIMRS bahwa pasien lama asuransi sudah terdaftar.', emr: '' },
+      { title: 'Ambil DRM dari penyimpanan berdasarkan lokasi di SIMRS', desc: 'Cari dan ambil DRM dari rak penyimpanan berdasarkan nomor RM dan lokasi rak yang tercantum di SIMRS.', emr: 'Lokasi penyimpanan DRM selalu terbarui di modul filling SIMRS.' },
+      { title: 'Verifikasi kelengkapan berkas asuransi', desc: 'Periksa dan cocokkan kelengkapan berkas asuransi dengan data yang tersimpan di EMR.', emr: '' },
+      { title: 'Input asesmen ulangan rawat jalan ke EMR', desc: 'Lengkapi formulir asesmen ulangan di EMR untuk kunjungan saat ini. Riwayat sebelumnya sudah tersedia sebagai referensi.', emr: 'Riwayat kunjungan, diagnosis, dan terapi sebelumnya langsung tersedia di EMR.' },
+      { title: 'Cetak stiker dan distribusikan ke poliklinik', desc: 'Cetak stiker identitas dari EMR, tempel pada formulir, lalu distribusikan DRM ke poliklinik dan update SIMRS.', emr: '' },
+    ]
+  },
+  {
+    id: 'RJ-05', cat: 'rajal',
+    name: 'Penerimaan Pasien Rencana Operasi',
+    unit: 'Unit Rekam Medis',
+    pengertian: 'Penerimaan dan persiapan berkas rekam medis untuk pasien yang telah dijadwalkan operasi pada kunjungan berikutnya.',
+    tujuan: 'Sebagai acuan penerimaan pasien rencana operasi yang terintegrasi dengan jadwal OK di SIMRS.',
+    unitTerkait: ['Bagian Pendaftaran', 'Unit Rekam Medis', 'Perawat Poliklinik', 'Perawat OK'],
+    prosedur: [
+      { title: 'Pasien mendaftar dengan nomor rekam medis', desc: 'Pasien mendaftar di loket pendaftaran dan menyerahkan nomor rekam medis atau KIB. SIMRS langsung menampilkan jadwal operasi yang terdaftar.', emr: 'Jadwal operasi sudah terinput di modul OK SIMRS oleh dokter pada kunjungan sebelumnya.' },
+      { title: 'Verifikasi keberadaan DRM di SIMRS', desc: 'Petugas rekam medis mengecek status dan lokasi DRM pasien di modul filling SIMRS.', emr: 'Status DRM (di rak/sedang dipinjam) terlihat real-time di SIMRS.' },
+      { title: 'Ambil DRM dan cek kelengkapan formulir pre-operasi', desc: 'Ambil DRM dari rak penyimpanan dan pastikan formulir pre-operasi (informed consent, hasil lab, pemeriksaan anestesi) sudah dilampirkan.', emr: 'Checklist kelengkapan formulir pre-operasi tersedia di modul OK EMR.' },
+      { title: 'Serahkan DRM ke perawat OK via SIMRS', desc: 'Serahkan DRM ke perawat OK dan konfirmasi serah terima di SIMRS.', emr: 'Update status DRM di SIMRS menjadi "distribusi ke OK" agar dapat dilacak oleh semua unit.' },
+    ]
+  },
+  {
+    id: 'RJ-06', cat: 'rajal',
+    name: 'Pelayanan Rekam Medis Pasien MCU',
+    unit: 'Unit Rekam Medis',
+    pengertian: 'Pengelolaan berkas rekam medis untuk pasien yang menjalani Medical Check-Up (MCU).',
+    tujuan: 'Sebagai panduan pelayanan Unit Rekam Medis untuk pasien MCU.',
+    unitTerkait: ['Unit Pendaftaran', 'Unit Rekam Medis', 'Unit Rawat Jalan'],
+    prosedur: [
+      { title: 'Terima notifikasi tracer MCU dari SIMRS', desc: 'Petugas menerima notifikasi tracer pasien poli MCU yang dikirim digital melalui SIMRS oleh unit pendaftaran.', emr: 'Tracer MCU tersedia otomatis di modul distribusi SIMRS setelah pendaftaran selesai.' },
+      { title: 'Cetak stiker/label identitas dari EMR', desc: 'Cetak stiker identitas pasien dari modul cetak EMR sesuai data yang sudah terinput.', emr: '' },
+      { title: 'Siapkan formulir MCU dan tempel label', desc: 'Siapkan formulir MCU dari paket yang dipilih, tempel label identitas pada semua formulir.', emr: 'Formulir MCU tersedia dalam format digital di EMR dan dapat dipilih sesuai paket pemeriksaan.' },
+      { title: 'Distribusikan berkas melalui SIMRS', desc: 'Input konfirmasi distribusi ke SIMRS dan arahkan berkas ke poliklinik MCU yang sesuai.', emr: 'Poliklinik MCU dapat memantau kedatangan berkas secara real-time melalui SIMRS.' },
+      { title: 'Distribusikan stiker ke seluruh poliklinik terkait', desc: 'Distribusikan stiker identitas ke semua poliklinik yang akan dikunjungi pasien MCU sesuai paket pemeriksaan.', emr: '' },
+    ]
+  },
+  {
+    id: 'RJ-07', cat: 'rajal',
+    name: 'Pendistribusian Status Rawat Jalan',
+    unit: 'Unit Rekam Medis',
+    pengertian: 'Kegiatan pendistribusian dokumen rekam medis rawat jalan ke poliklinik yang dituju secara cepat dan tepat.',
+    tujuan: 'Meningkatkan mutu pelayanan melalui distribusi status yang cepat dan tepat sasaran.',
+    unitTerkait: ['Petugas Unit Rekam Medis'],
+    prosedur: [
+      { title: 'Siapkan DRM dan data distribusi', desc: 'Siapkan DRM yang akan didistribusikan. Pastikan semua DRM sudah lengkap dan tersusun dengan baik.', emr: '' },
+      { title: 'Catat distribusi di SIMRS', desc: 'Input data distribusi (tanggal, nomor RM, nama pasien, poliklinik tujuan) ke SIMRS sekaligus mencatat di buku ekspedisi fisik.', emr: 'Data digital di SIMRS memungkinkan poliklinik tujuan memantau DRM yang sedang dalam perjalanan.' },
+      { title: 'Antar DRM ke poliklinik berdasarkan prioritas antrian', desc: 'Antar DRM ke poliklinik tujuan. Prioritaskan berdasarkan urutan antrian yang tampil di SIMRS.', emr: 'Urutan prioritas distribusi dapat dilihat dari modul antrian poliklinik SIMRS.' },
+      { title: 'Konfirmasi penerimaan secara digital', desc: 'Minta konfirmasi penerimaan dari petugas poliklinik melalui SIMRS dan catat waktu serah terima.', emr: 'Konfirmasi digital di SIMRS mencatat siapa penerima, jam terima, dan status distribusi secara akurat.' },
+    ]
+  },
   // // ── RAWAT INAP ────────────────────────────────────────────────────────────
   // {
   //   id: 'RI-01', cat: 'ranap',
