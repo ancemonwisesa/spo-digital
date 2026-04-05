@@ -198,7 +198,7 @@ function headerHTML(spo, page, totalPages) {
   </td>
   <td style="width:15mm">
     <div class="spo-meta-label">No. Revisi</div>
-    <div class="spo-meta-val">00</div>
+    <div class="spo-meta-val">01</div>
   </td>
   <td style="width:15mm">
     <div class="spo-meta-label">Halaman</div>
