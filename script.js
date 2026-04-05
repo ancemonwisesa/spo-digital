@@ -173,12 +173,13 @@ function getRomawi(n) {
 }
 
 function getNoDoc(spo) {
-  const d = new Date();
+  //  const d = new Date();
   const unitMap = {
     'pendaftaran': 'ADM', 'rajal': 'RJ', 'ranap': 'RI', 'dokumen': 'DK', 'admin': 'AM', 'keamanan': 'KR'
   };
   const kode = unitMap[spo.cat] || 'RM';
-  return `${spo.id}/SPO/${kode}/RSBH-II/${getRomawi(d.getMonth() + 1)}/${d.getFullYear()}`;
+  // return `${spo.id}/SPO/${kode}/RSBH-II/${getRomawi(d.getMonth() + 1)}/${d.getFullYear()}`;
+  return `${spo.id}/SPO/${kode}/RSBH-II/III/2026`;
 }
 
 function headerHTML(spo, page, totalPages) {
@@ -257,7 +258,7 @@ function printSPO(id) {
   if (!spo) return;
 
   // Hitung total halaman: 1 jika prosedur <= 5, 2 jika lebih
-  const totalPages = spo.prosedur.length <= 5 ? 1 : 2;
+  const totalPages = spo.prosedur.length <= 2 ? 1 : 2;
 
   // ── Halaman 1 ──────────────────────────────────────────────────────────────
   let p1 = `<div class="spo-page">`;
@@ -292,7 +293,7 @@ ${totalPages === 1 ? `<tr>
   </table>`;
   p1 += `</div>`;
 
-  // ── Halaman 2 (jika prosedur > 5) ─────────────────────────────────────────
+  // ── Halaman 2 (jika prosedur > 1) ─────────────────────────────────────────
   let p2 = '';
   if (totalPages === 2) {
     p2 = `<div class="spo-page">`;
